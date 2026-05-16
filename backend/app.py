@@ -2,6 +2,12 @@ from flask import Flask, request, send_file, jsonify
 from flask_cors import CORS
 from PIL import Image
 import io
+import os
+import uvicorn
+
+port = int(os.environ.get("PORT", 10000))
+
+uvicorn.run(app, host="0.0.0.0", port=port)
 
 app = Flask(__name__)
 CORS(app)
