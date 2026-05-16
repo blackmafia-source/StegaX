@@ -2,3 +2,5 @@ flask
 flask-cors
 Pillow
 gunicorn
+uvicorn
+fastapi
