@@ -2,12 +2,18 @@ from flask import Flask, request, send_file, jsonify
 from flask_cors import CORS
 from PIL import Image
 import io
+from fastapi import FastAPI
 import os
-import uvicorn
 
-port = int(os.environ.get("PORT", 10000))
+app = FastAPI()
 
-uvicorn.run(app, host="0.0.0.0", port=port)
+@app.get("/")
+def home():
+    return {"message": "Hello"}
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=int(os.environ.get("PORT", 10000)))
 
 app = Flask(__name__)
 CORS(app)
