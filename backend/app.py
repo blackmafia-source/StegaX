@@ -18,6 +18,10 @@ if __name__ == "__main__":
 app = Flask(__name__)
 CORS(app)
 
+@app.route("/")
+def home():
+    return "StegaX Backend Running Successfully 🚀"
+
 def lsb_hide(cover_image, secret_data):
     cover = cover_image.convert("RGBA")
     pixels = cover.load()
